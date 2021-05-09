@@ -12,24 +12,24 @@ const Home = () => {
                 </Link>
             </div>
             <div className='card'>
-                <Link to='/mergesort' style={{textDecoration:'none'}}>
+                <Link to='/quicksort' style={{textDecoration:'none'}}>
                     <div className='card-body'>
-                        <h2 className='text'>Merge Sort</h2>
+                        <h2 className='text'>Quick Sort</h2>
                     </div>
                 </Link>
             </div>
             <div className='card'>
-                <Link to='/mergesort' style={{textDecoration:'none'}}>
+                <Link to='/insertionsort' style={{textDecoration:'none'}}>
                     <div className='card-body'>
-                        <h2 className='text'>Merge Sort</h2>
+                        <h2 className='text'>Insertion Sort</h2>
                     </div>
                 </Link>
             </div>
 
             <div className='card'>
-                <Link to='/mergesort' style={{textDecoration:'none'}}>
+                <Link to='/bubblesort' style={{textDecoration:'none'}}>
                     <div className='card-body'>
-                        <h2 className='text'>Merge Sort</h2>
+                        <h2 className='text'>Bubble Sort</h2>
                     </div>
                 </Link>
             </div>

@@ -1,9 +1,8 @@
 import React, { useContext, useEffect } from 'react'
 import { SortingContext } from '../../context/SortingContext'
-import {getMergeSortAnimatoins} from './MergeAlgo';
+import { bubbleSort } from './BubbleAlgo';
 
-
-const MergeSort = () => {
+const BubbleSort = () => {
     const {initialArr,setInitialArr,generateArray}=useContext(SortingContext);
     var size=200,I=5,F=400;
 
@@ -19,27 +18,32 @@ const MergeSort = () => {
     },[setInitialArr,size,I,F])
 
     const sortArr=()=>{
-        const animations=getMergeSortAnimatoins(initialArr);
+        const animations=bubbleSort(initialArr);
         const arrayBars = document.getElementsByClassName('array-bar');
-        for (let i = 0; i < animations.length; i++) {            
-            const isColorChange = i % 3 !== 2;
+        const length=animations.length;
+        for (let i = 0; i < length; i++) {
+            const isColorChange = i % 4 !== 2 && i % 4 !== 3;
             if (isColorChange) {
               const [barOneIdx, barTwoIdx] = animations[i];
               const barOneStyle = arrayBars[barOneIdx].style;
               const barTwoStyle = arrayBars[barTwoIdx].style;
-              const color = i % 3 === 0 ? 'red' : 'blue';
+              const color = 'red';
               setTimeout(() => {
                 barOneStyle.backgroundColor = color;
                 barTwoStyle.backgroundColor = color;
-              }, i*10);
+              }, i*1);
             } else {
               setTimeout(() => {
                 const [barOneIdx, newHeight] = animations[i];
                 const barOneStyle = arrayBars[barOneIdx].style;
-                barOneStyle.height = `${newHeight}px`;
-              }, i*10);
+                barOneStyle.backgroundColor='blue';
+                if(i===length-1){
+                    arrayBars[arrayBars.length-1].style.backgroundColor='blue';
+                }
+                barOneStyle.height = `${newHeight}px`
+              }, i*1);
             }
-        }        
+        } 
     }
     return (
             <div className='array-container'>
@@ -50,4 +54,4 @@ const MergeSort = () => {
     )
 }
 
-export default MergeSort
+export default BubbleSort
